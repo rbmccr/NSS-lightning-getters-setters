@@ -50,3 +50,43 @@ console.log(Kanye._nickname); //syntax if no "get nickname()" was included in cl
 // note that the underscore in front of the variable indicates that 
 // the variable should not be accessed directly, since something
 // else is accessing it indirectly
+
+// --------------------------------------------------------------
+
+// Make a childCare class where you can pass in any child and
+// care giver as properties with methods to change diaper (console
+// logs an inspirational quote to the care giver), and to store
+// behavior in a properties (good or bad ect) using a setter.
+
+let inspiration = ["Get over yourself.", "Everyone poops."];
+
+class childCare {
+
+  constructor(props) {
+    this.child = props.child;
+    this.caregiver = props.caregiver;
+  }
+
+  changeDiaper() {
+    console.log("Here's some inspiration: " + inspiration[Math.floor(Math.random() * inspiration.length)]);
+  }
+
+  get behavior() {
+    return this._behavior;
+  }
+
+  set behavior(goo) {
+    this._behavior = goo;
+  }
+
+}
+
+const baby1 = new childCare ({
+  child: "North West",
+  caregiver: "Dave Chappelle"
+});
+
+baby1.changeDiaper();
+console.log(baby1.child + ",", baby1.caregiver + ",", baby1.behavior + " behavior");
+baby1.behavior = "bad";
+console.log(baby1.child + ",", baby1.caregiver + ",", baby1.behavior + " behavior");
